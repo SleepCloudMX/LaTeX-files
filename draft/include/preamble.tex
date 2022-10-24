@@ -1,0 +1,260 @@
+\documentclass{ctexart}
+% \special{dvipdfmx:config z 0}
+% \setCJKmainfont{SimHei}[BoldFont=SimHei, ItalicFont=KaiTi]
+% pdf 转 svg 的话就将上面一行取消注释.
+\pagestyle{empty}
+\usepackage[english]{babel}
+\usepackage{amsfonts, amsmath, amssymb, amscd, amsthm}
+\usepackage{mathrsfs, bm, bbm}
+\usepackage{xparse}
+\usepackage{physics}
+\usepackage{esint}
+\usepackage{xypic}
+\usepackage{tikz}
+
+
+
+% 设置
+\RequirePackage{xparse, amsmath, physics}
+\renewcommand{\baselinestretch}{1.5}
+\renewcommand{\indent}{\hspace{2em}}
+\newcommand{\aneg}[1]{\hspace{-0.75em}&#1&\hspace{-0.75em}}
+\newcommand{\aneq}{\aneg{=}}
+% 上述指令用于在使用 array 环境时调整等号左右间距
+\newcommand{\eqs}{\quad\;}
+% 上述指令用于 align 环境中, &= 的换行对齐时调整第二行位置
+\renewcommand{\d}{\displaystyle}
+
+
+
+% 字符
+\renewcommand{\i}{\mathrm{i}}
+\renewcommand{\j}{\mathrm{j}}
+\newcommand{\e}{\textup{e}}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\Beta}{\mathit{B}}
+\newcommand{\omicron}{\mathit{o}}
+\newcommand{\Omicron}{\mathit{O}}	% 这三个无所谓啦
+
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\K}{\mathbb{K}}
+\renewcommand{\L}{\mathbb{L}}	% 已有定义, 不过我不知道原定义的作用. 如有需求则取消注释.
+\newcommand{\J}{\mathbb{J}}
+
+
+
+% 上下标
+\newcommand{\trans}{^\mathrm{T}}
+\newcommand{\inv}{^{-1}}
+\newcommand{\adj}[1]{^{\pqty{#1^*}}}
+%\newcommand{\vector}[1]{\overrightarrow{#1}}	% 使用 typora 时取消注释
+
+
+
+% 特定内容
+\newcommand{\ccdots}{\cdot\cdots\cdot}
+\newcommand{\oneton}{1,2,\cdots,n}
+\newcommand{\oneto}[1]{1,2,\cdots,#1}
+
+\newcommand{\ssto}[3]{#1_1 #3 #1_2 #3 \cdots #3 #1_{#2}}
+\newcommand{\ssup}[3]{#1^1 #3 #1^2 #3 \cdots #3 #1^{#2}}
+\newcommand{\soneto}[2]{\ssto{#1}{#2}{,}}
+\newcommand{\splus}[2]{\ssto{#1}{#2}{+}}
+
+\newcommand{\aqty}[1]{\expval{#1}}
+\newcommand{\pbqty}[1]{\left(#1\right]}
+\newcommand{\bpqty}[1]{\left[#1\right)}
+% 也可以用下面三行代码, 只不过 typora 中无法使用.
+%\DeclareDocumentCommand\aqty{ l m }{\braces#1{\langle}{\rangle}{#2}}
+%\DeclareDocumentCommand\pbqty{ l m }{\braces#1{\lparen}{\rbrack}{#2}}
+%\DeclareDocumentCommand\pbqty{ l m }{\braces#1{\lbrack}{\rparen}{#2}}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+
+% 下面几个只是为了方便一点点而已
+\newcommand{\dx}{\dd{x}}
+\newcommand{\dy}{\dd{y}}
+\newcommand{\dz}{\dd{z}}
+\newcommand{\dt}{\dd{t}}
+\newcommand{\ds}{\dd{s}}
+\newcommand{\dr}{\dd{r}}
+
+% 如果只使用 \dd{x}\dd{y} 的话, 中间会有多余的间隔.
+\newcommand{\df}{\dd}
+\newcommand{\ddf}[2]{\,\mathrm{d}#1\mathrm{d}#2}	% 微分形式 differential form
+\newcommand{\dddf}[3]{\,\mathrm{d}#1\mathrm{d}#2\mathrm{d}#3}
+
+\newcommand{\dxdy}{\ddf{x}{y}}
+\newcommand{\dydz}{\ddf{y}{z}}
+\newcommand{\dzdx}{\ddf{z}{x}}
+\newcommand{\dudv}{\ddf{u}{v}}
+\newcommand{\drdt}{\ddf{r}{\theta}}
+\newcommand{\dxdydz}{\dddf{x}{y}{z}}
+
+
+
+
+% 函数名
+\renewcommand{\char}{\operatorname{char}}	% 由于已存在此命令, 不可使用 DeclareMathOperator
+\renewcommand{\r}{\operatorname{r}}
+\DeclareMathOperator{\st}{s.t.\,}	% 虽然不是函数名, 但用了这个指令就放这儿了.
+\DeclareMathOperator{\diag}{diag}	% 不需要定义太多, 一个文件里用到什么定义什么,
+\DeclareMathOperator{\Ker}{Ker}		% 毕竟特殊的函数名太多太多了.
+\DeclareMathOperator{\Aut}{Aut}		% 便捷与效率的权衡.
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\stab}{stab}
+\DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Corr}{Corr}
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\sgn}{sgn}
+%\DeclareMathOperator{\span}{span}
+
+\def\arsh{\ensuremath{\operatorname{arsh}}}
+\def\arch{\ensuremath{\operatorname{arch}}}
+\def\arth{\ensuremath{\operatorname{arth}}}
+
+
+
+% 运算符
+\newcommand{\capop}{\displaystyle\mathop\cap\limits}
+\newcommand{\cupop}{\displaystyle\mathop\cup\limits}
+\newcommand{\oplusop}{\mathop\oplus\limits}
+\newcommand{\otimesop}{\mathop\otimes\limits}
+\newcommand{\bigoplusop}{\mathop\bigoplus\limits}
+\newcommand{\bigotimesop}{\mathop\bigotimes\limits}
+% emmmm, 才发现, 上面几个宏没有必要写,
+% 直接用 \bigcap, \bigcup, \bigoplus, \bigotimes 就可以了
+
+\newcommand{\dint}{\displaystyle\int}
+\newcommand{\inti}{\dint_{-\infty}^{+\infty}}
+\newcommand{\intoi}{\dint_0^{+\infty}}
+
+\newcommand{\intl}{\displaystyle\int\limits}
+\newcommand{\iintl}{\displaystyle\iint\limits}
+\newcommand{\iiintl}{\displaystyle\iiint\limits}
+
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\nsum}{\dsum_{n=1}^\infty}
+\newcommand{\nosum}{\dsum_{n=0}^\infty}
+\newcommand{\insum}{\dsum_{i=1}^n}
+\newcommand{\knsum}{\dsum_{k=1}^n}
+
+\newcommand{\dprod}{\displaystyle\prod}
+\newcommand{\nprod}{\dprod_{n=1}^\infty}
+\newcommand{\noprod}{\dprod_{n=0}^\infty}
+\newcommand{\inprod}{\dprod_{i=1}^n}
+
+\newcommand{\liml}{\lim\limits}
+\newcommand{\xlim}{\lim\limits_{x\to x_0}}
+\newcommand{\nlim}{\lim\limits_{n\to\infty}}
+\newcommand{\clim}[1]{\lim\limits_{#1\to\infty}}
+\newcommand{\ulim}{\overline\lim\limits_{n\to\infty}}
+\newcommand{\dlim}{\underline\lim\limits_{n\to\infty}}
+% 注意这里的 d 是 down, 而不是 displaystyle
+
+
+
+% 缩写
+%\newcommand{\bm}[1]{\boldsymbol{#1}}		% 使用 typora 时取消注释
+\newcommand{\LRA}{\Leftrightarrow}
+\newcommand{\RLA}{\Leftrightarrow}
+\newcommand{\LA}{\Leftarrow}
+\newcommand{\RA}{\Rightarrow}
+
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\rla}{\leftrightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\ra}{\rightarrow}
+
+\newcommand{\QRLA}{\quad\RLA\quad}
+\newcommand{\QRA}{\quad\RA\quad}
+\newcommand{\LLRA}{\Longleftrightarrow}
+
+\newcommand{\QNRA}{\quad\nRightarrow\quad}
+\newcommand{\qnra}{\quad\nrightarrow\quad}
+
+
+
+% 图形符号
+%\newcommand{\qed}{\quad\square}
+\renewcommand{\parallel}{\mathrel{/\mskip-2.5mu/}}
+\newcommand{\paralleleq}{\;
+	\begin{tikzpicture}[line width=0.1ex, line cap=round]
+		\draw (0, 0) -- (1.4ex, 0) [yshift=0.3ex] (0, 0) -- (1.4ex, 0);
+		\draw (0.4ex, 0.5ex) -- ++(70:1.2ex) [xshift=0.35ex] (0.4ex, 0.5ex) -- ++(70:1.2ex);
+	\end{tikzpicture}
+	\;}
+\newcommand{\rt}{\matrm{Rt}\triangle}
+
+
+
+% Xparse 宏包带参宏指令
+% 注: 以下四个指令可用 physics 中的 \dv 与 \pdv 代替
+\NewDocumentCommand{\ider}{o m}{
+	\IfNoValueT{#1}{\frac{\d}{\d#2}}
+	\IfNoValueF{#1}{\frac{\d^#1}{\d#2^#1}}
+}
+\NewDocumentCommand{\der}{o m m}{
+	\IfNoValueT{#1}{\frac{\d#2}{\d#3}}
+	\IfNoValueF{#1}{\frac{\d^#1#2}{\d#3^#1}}
+}
+\NewDocumentCommand{\ipd}{o m}{
+	\IfNoValueT{#1}{\frac{\partial}{\partial#2}}
+	\IfNoValueF{#1}{\frac{\partial^#1}{\partial#2^#1}}
+}
+\NewDocumentCommand{\pd}{o m m}{
+	\IfNoValueT{#1}{\frac{\partial#2}{\partial#3}}
+	\IfNoValueF{#1}{\frac{\partial^#1#2}{\partial#3^#1}}
+}
+
+% 注: 以下两个指令在 typora 中无法使用，因为无法使用 xparse 宏包
+\DeclareDocumentCommand{\DD}{ o g d() }{ % difference operator \Delta
+	% o: optional n for nth difference
+	% g: optional argument for readability and to control spacing
+	% d: long-form as in d(cos x)
+	\IfNoValueTF{#2}{
+		\IfNoValueTF{#3}
+		{\Delta\IfNoValueTF{#1}{}{^{#1}}}
+		{\mathinner{\Delta\IfNoValueTF{#1}{}{^{#1}}\argopen(#3\argclose)}}
+	}
+	{\mathinner{\Delta\IfNoValueTF{#1}{}{^{#1}}#2} \IfNoValueTF{#3}{}{(#3)}}
+}
+
+\DeclareDocumentCommand{\DV}{ s o m g d() }
+{ % Total difference
+	% s: star for \flatfrac flat difference
+	% o: optional n for nth difference
+	% m: mandatory (x in df/dx)
+	% g: optional (f in df/dx)
+	% d: long-form d/dx(...)
+	\IfBooleanTF{#1}
+	{\let\fractype\flatfrac}
+	{\let\fractype\frac}
+	\IfNoValueTF{#4}
+	{
+		\IfNoValueTF{#5}
+		{\fractype{\Delta \IfNoValueTF{#2}{}{^{#2}}}{\Delta #3\IfNoValueTF{#2}{}{^{#2}}}}
+		{\fractype{\Delta \IfNoValueTF{#2}{}{^{#2}}}{\Delta #3\IfNoValueTF{#2}{}{^{#2}}} \argopen(#5\argclose)}
+	}
+	{\fractype{\Delta \IfNoValueTF{#2}{}{^{#2}} #3}{\Delta #4\IfNoValueTF{#2}{}{^{#2}}}}
+}
+\DeclareDocumentCommand\DDV{}{\displaystyle\DV}
+
+% 如果是 typora，就注释了上面这几个，凑合着用下面这三个
+%\newcommand{\DD}{\Delta}
+%\newcommand{\DV}[2]{\dfrac{\DD#1}{\DD#2}}
+%\newcommand{\nDV}[3]{\dfrac{\DD^{#1}#2}{\DD#3^{#1}}}
+
+
+% displaytsyle 的指令缩写
+% 下面两个为了 LaTeX 和 typora 的通用性, 就没用 \DeclareDocumentCommand 了.
+\newcommand{\ddv}{\displaystyle\dv}
+\newcommand{\dpdv}{\displaystyle\pdv}
+%\newcommand{\dbinom}{\displaystyle\binom}

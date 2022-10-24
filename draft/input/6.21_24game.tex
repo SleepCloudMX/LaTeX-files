@@ -1,0 +1,36 @@
+\[
+\begin{aligned}
+	f(a, b, c, d)
+	&= \pqty{ \bqty{\Bqty{\vqty{a}}}! + \bqty{\Bqty{\vqty{b}}}! + \bqty{\Bqty{\vqty{c}}}! + \bqty{\Bqty{\vqty{d}}}! }!
+	\\
+	f(x_1, x_2, \cdots, x_n)
+	&= \left\lceil
+		\sec(\sqrt{ \tan(
+			\left\lfloor
+				\Bqty{\vqty{x_1}}
+			\right\rfloor !
+		) }) \right\rceil ! +
+	\sum_{i=2}^n {
+		\left\lfloor
+			\Bqty{\vqty{x_i}}
+		\right\rfloor
+	}
+	\\
+	f(x_1, x_2, \cdots, x_n)
+	&= \left\lceil \sinh\pqty{
+		\left\lceil \tan\pqty{
+			\left\lfloor
+				\Bqty{\vqty{x_1}}
+			\right\rfloor !
+		} \right\rceil
+	} \right\rceil ! +
+	\sum_{i=2}^n {
+		\left\lfloor
+			\Bqty{\vqty{x_i}}
+		\right\rfloor
+	}
+\end{aligned}
+\]
+
+某不讲理的算24点万能公式, 复数范围都可以算. 后两个公式适用于任意个数元素，使用时将求和展开即可.
+其中 $ \vqty{} $ 是取模运算, $ \Bqty{} $ 是取小运算, $ \lfloor\rfloor $ 是取整运算, $ \lceil\rceil $ 是取顶运算.

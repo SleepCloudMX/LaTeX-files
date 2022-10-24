@@ -1,0 +1,19 @@
+\begin{table}[h]
+	\centering
+	\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\tabincell{c}{\\ $\displaystyle\int_0^x 2t\dd{t} = \int_0^x \dd{t^2} = x^2$ \\ \textbf{守序善良} } &
+		\tabincell{c}{\\ $\displaystyle \int_0^d 2x\dd{x} = \int_0^d \dd{x^2} = d^2$ \\ \textbf{中立善良}} &
+		\tabincell{c}{\\ $\displaystyle\int_0^x 2tdt = \int_0^x dt^2 = x^2$ \\ \textbf{混乱善良} }
+		\\ \hline
+		\tabincell{c}{\\ $\displaystyle\int_0^x 2x\dd{x} = \int_0^x \dd{x^2} = x^2$ \\ \textbf{守序中立}} &
+		\tabincell{c}{\\ $\displaystyle\int_0^d 2d\dd{d} = \int_0^d \dd{d^2} = d^2$ \\ \textbf{绝对中立}} &
+		\tabincell{c}{\\ $\displaystyle\int_0^d 2ddd = \int_0^d dd^2 = d^2$ \\ \textbf{混乱中立}}
+		\\ \hline
+		\tabincell{c}{\\ $\displaystyle\int_0^x 2d\dd{d} = \int_0^x \dd{d^2} = x^2$ \\ \textbf{守序邪恶}} &
+		\tabincell{c}{\\ $\displaystyle\int_0^d 2d\dd{d} = \int_0^d \dd{dd} = dd$ \\ \textbf{中立邪恶}} &
+		\tabincell{c}{\\ $\displaystyle\int_0^d 2ddd = \int_0^d ddd = dd$ \\ \textbf{混乱邪恶}}
+		\\ \hline
+	\end{tabular}
+\end{table}
