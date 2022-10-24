@@ -2,7 +2,7 @@
 
 
 
-这是我为了记笔记方便而写的一些 $\LaTeX$ 宏指令.
+这是我为了记笔记方便而写的一些 $\LaTeX$ 宏指令. (见 `draft/include/preamble.tex`)
 
 我使用的笔记软件是 [Typora ](https://typoraio.cn/), 这款 markdown 编辑器在数学公式上有如下特点:
 
