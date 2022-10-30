@@ -4,6 +4,8 @@
 
 这是我为了记笔记方便而写的一些 $\LaTeX$ 宏指令. (见 `draft/include/preamble.tex`)
 
+另外, 我还上传了几个模板, 都在 template 文件夹中.
+
 我使用的笔记软件是 [Typora ](https://typoraio.cn/), 这款 markdown 编辑器在数学公式上有如下特点:
 
 1. 可以启用 physics 宏包, 但不能包含其它宏包.
