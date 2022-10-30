@@ -1,0 +1,4 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{First section}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Subsection 1}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Subsection 2}{4}{0}{1}

@@ -1,0 +1,59 @@
+\include{preamble}
+
+\begin{document}
+%----------------------------设置----------------------------
+\ctexset{today=small}
+\ctexset{abstractname={摘要}}
+\ctexset{proofname={证明.}}
+\ctexset{bibname={参考文献}}
+
+\title{一篇论文的标题}
+\author{你的名字}
+\date{\today}
+\maketitle
+
+%----------------------------摘要----------------------------
+\begin{abstract}
+	论文的摘要。
+\end{abstract}
+
+%----------------------------引言----------------------------
+\setcounter{section}{-1}
+\section{引言}
+论文的引言。
+
+%--------------------------第一部分--------------------------
+\section{第一部分}	
+	你好，\LaTeX
+
+\subsection{第一小节}
+
+\begin{defn}\label{D1.1}
+	设 $ x,y \in \mathbb{N} $，自然数的加法用符号“+”表示，且满足：
+	\[ \left\{ \begin{array}{l}
+		x+0 = x, \\
+		x+y' = (x+y)'. \\
+	\end{array} \right. \]
+\end{defn}
+
+\begin{thm}[定理名]
+	$ 1+1 = 2 $.
+\end{thm}
+
+\begin{proof}
+	由定义 \ref{D1.1}，
+	$ 1+1 = 1+0' = (1+0)' = 1' = 2 $.
+\end{proof}
+
+%----------------------------致谢----------------------------
+\begin{ack}
+	论文的致谢.
+\end{ack}
+
+%--------------------------参考文献--------------------------
+\bibliographystyle{elsarticle-num-names}
+\begin{thebibliography}{60}
+	\bibitem{1} 作者，\emph{题目}，期刊，\textbf{卷号}(年份)，页码.
+\end{thebibliography}	
+
+\end{document}

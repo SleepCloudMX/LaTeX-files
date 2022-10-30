@@ -1,0 +1,67 @@
+\include{preamble}
+
+%-------------------------title page-------------------------
+\title[abbr]{Title}
+\subtitle{Subtitle}
+\author{SleepCloud}
+\institute[BBCSE]
+{
+	School of Computer Science and Engineering, \\
+	Bilibili University
+}
+\date{\today}
+
+%-------------------------main body--------------------------
+\begin{document}
+	\frame{\titlepage}
+	
+	%1-1.1
+	\section[Abbr]{First section}
+	\subsection{Subsection 1}
+	\begin{frame}
+		\frametitle{Frame Title}
+		\begin{block}{Example}
+			\indent Examples:
+			\begin{align*}
+				f\,'(x) &= \der{f}{x} = \ider{x} f\,(x)
+				&f\,''(x) &= \der[2]{f}{x} = \ider[2]{x} f\,(x)
+				\\
+				z\,'_x &= \pd{z}{x} = \ipd{x} z\,(x,y)
+				&z\,''_{xx} &= \pd[2]{z}{x} = \ipd[2]{x} z\,(x,y)
+				\\
+				g\,(x) &\equiv 3\arsh x + \arch(x)
+				&\Beta(\alpha,\beta) &= \frac{\alpha-1}{\alpha+\beta-1}
+				\Beta(\alpha-1,\beta)
+			\end{align*}
+		\end{block}
+	\end{frame}
+	
+	%1-2.1
+	\subsection{Subsection 2}
+	\begin{frame}
+		\frametitle{Frame Title}
+		\setbeamercolor{block title}
+		{fg = white, bg = uibgreen}
+		\begin{block}{Example}
+			\begin{columns}
+				\column{0.5\textwidth}
+				\begin{itemize}
+					\item<1-> item 1
+					\item<2> item 2
+					\item<3-> item 3
+				\end{itemize}
+				\pause \pause \pause
+				
+				\column{0.5\textwidth}
+				\begin{enumerate}
+					\item item 1
+					\item \alert{item 2}
+				\end{enumerate}
+			\end{columns}
+		\end{block}
+	\begin{proof}
+		\indent Proved.
+	\end{proof}
+	\end{frame}
+	
+\end{document}

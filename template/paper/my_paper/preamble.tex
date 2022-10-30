@@ -1,0 +1,61 @@
+\documentclass[a4paper, 11pt, UTF8]{article}
+\usepackage{ctex}		%请勿将 article 与 ctex 简写成 ctexart
+\usepackage{xparse}
+\usepackage[english]{babel}
+\usepackage{amsfonts, amsmath, amssymb, amscd, amsthm}
+\usepackage{mathrsfs, bm, bbm}
+\usepackage{indentfirst}
+%\usepackage{graphicx, subfigure}
+
+%--------------------------settings--------------------------
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\renewcommand{\baselinestretch}{1.25}
+\renewcommand{\qedsymbol}{\ensuremath{\square}}
+
+%-------------------------definition-------------------------
+\def\indent{\hspace{2em}}
+\def\d{\textup{d}}
+\def\e{\textup{e}}
+\def\Beta{\textup{B}}
+\def\trans{\ensuremath{^\mathrm{T}}}
+\def\oneton{\{1,2,3,...,n\}}
+
+\def\arsh{\ensuremath{\operatorname{arsh}}}
+\def\arch{\ensuremath{\operatorname{arch}}}
+\def\arth{\ensuremath{\operatorname{arth}}}
+
+\NewDocumentCommand{\ider}{o m}{
+	\IfNoValueT{#1}{\frac{\d}{\d#2}\,}
+	\IfNoValueF{#1}{\frac{\d^#1}{\d#2^#1}}
+}
+\NewDocumentCommand{\der}{o m m}{
+	\IfNoValueT{#1}{\frac{\d#2}{\d#3}}
+	\IfNoValueF{#1}{\frac{\d^#1#2}{\d#3^#1}}
+}
+\NewDocumentCommand{\ipd}{o m}{
+	\IfNoValueT{#1}{\frac{\partial}{\partial#2}}
+	\IfNoValueF{#1}{\frac{\partial^#1}{\partial#2^#1}}
+}
+\NewDocumentCommand{\pd}{o m m}{
+	\IfNoValueT{#1}{\frac{\partial#2}{\partial#3}}
+	\IfNoValueF{#1}{\frac{\partial^#1#2}{\partial#3^#1}}
+}
+
+\theoremstyle{plain}
+\newtheorem{thm}{定理}[section]
+\newtheorem{lem}{引理}[section]
+\newtheorem{prop}{命题}[section]
+\newtheorem{cor}{推论}[section]
+
+\theoremstyle{definition}
+\newtheorem{defn}{定义}[section]
+\newtheorem{exmp}{例子}[section]
+\newtheorem*{ack}{致谢}
+
+\theoremstyle{Remark}
+\newtheorem{rem}{注释}[section]
+
+\newenvironment{keyword}
+{\vspace{2ex}\noindent{\heiti 关键词:}}
+{}

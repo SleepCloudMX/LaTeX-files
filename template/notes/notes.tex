@@ -1,0 +1,38 @@
+\include{preamble}
+
+\begin{document}
+%----------------------------设置----------------------------
+\ctexset{today=small}
+\ctexset{abstractname={摘要}}
+\ctexset{proofname={证明.}}
+\ctexset{bibname={参考文献}}
+
+\title{一篇论文的标题}
+\author{SleepCloud}
+\date{\today}
+\maketitle
+
+%--------------------------第一部分--------------------------
+\section{第一部分}	
+你好，\LaTeX
+
+\subsection{第一小节}
+
+\begin{defn}\label{D1.1}
+	设 $ x,y \in \mathbb{N} $，自然数的加法用符号“+”表示，且满足：
+	\[ \left\{ \begin{array}{l}
+		x+0 = x, \\
+		x+y' = (x+y)'. \\
+	\end{array} \right. \]
+\end{defn}
+
+\begin{thm}[定理名]
+	$ 1+1 = 2 $.
+\end{thm}
+
+\begin{proof}
+	由定义 \ref{D1.1}，
+	$ 1+1 = 1+0' = (1+0)' = 1' = 2 $.
+\end{proof}
+
+\end{document}
