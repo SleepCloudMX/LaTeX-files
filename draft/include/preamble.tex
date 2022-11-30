@@ -77,6 +77,18 @@
 \newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
 \newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
 
+% matrix, pmatrix 和 cases 已经有了
+% array, align, equation 等没必要写, 它们的内容一般比较多, 用 \begin 和 \end 更显眼一点也不错. 而且我在 typora 中的习惯是, 第一个 \begin 后不缩进, 因为
+% 1. 一个 LaTeX 环境一般只有一个 \begin{align}, 否则会有报错 "Erroneous nesting of equation structures";
+% 2. 一般一个 LaTeX 环境只放一个或一组公式, 否则点进去查看时, 代码和渲染不能同屏显示;
+% 3. 软件页面一般不到半屏, 第一次缩进很占空间.
+\newcommand{\bmatrix}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\Bmatrix}[1]{\begin{Bmatrix}#1\end{Bmatrix}}
+\newcommand{\vmatrix}[1]{\begin{vmatrix}#1\end{vmatrix}}
+\newcommand{\Vmatrix}[1]{\begin{Vmatrix}#1\end{Vmatrix}}
+
+
+
 % 下面几个只是为了方便一点点而已
 \newcommand{\dx}{\dd{x}}
 \newcommand{\dy}{\dd{y}}
