@@ -15,6 +15,12 @@
 \newcommand{\omicron}{\mathit{o}}
 \newcommand{\Omicron}{\mathit{O}}
 
+\renewcommand{\cal}[1]{\mathcal#1}
+\renewcommand{\scr}[1]{\mathscr#1}
+\renewcommand{\frak}[1]{\mathfrak#1}
+% 原本的定义为:
+% \newcommand{\cal}[1]{\mathcal{#1}}
+
 % 数集
 \newcommand{\D}{\mathbb{D}}
 \newcommand{\E}{\mathbb{E}}
@@ -26,8 +32,10 @@
 % 上下标
 \newcommand{\trans}{^\mathrm{T}}
 \newcommand{\inv}{^{-1}}
-\newcommand{\adj}[1]{^{\pqty{#1^*}}}
+\newcommand{\madj}[1]{^{\pqty{#1^*}}}	% m 重伴随矩阵
+\newcommand{\adj}{^*}
 \newcommand{\vector}[1]{\overrightarrow{#1}}
+\newcommand{\wavy}[1]{\overset\sim#1}	% \tilde 或 \widetilde 不明显, 容易与 \bar 或 \overline 混淆
 
 % 序列
 \newcommand{\ccdots}{\cdot\cdots\cdot}
@@ -186,8 +194,47 @@
 \newcommand{\QNRA}{\quad\nRightarrow\quad}
 \newcommand{\qnra}{\quad\nrightarrow\quad}
 
+\newcommand{\wt}{\widetilde}
+
 % 图形符号
 \newcommand{\qed}{\quad\square}
 \renewcommand{\parallel}{\mathrel{/\mskip-2.5mu/}}
 \newcommand{\paralleleq}{\hspace{0.5em}{^{^{\parallel}}}\hspace{-1.04em}=}
 \newcommand{\rt}{\matrm{Rt}\triangle}
+
+% 分块矩阵
+\newenvironment{mat}[1]{
+	\begin{array}{#1}
+}{
+	\end{array}
+}
+
+\newenvironment{pmat}[1]{
+	\left( \begin{array}{#1}
+}{
+	\end{array} \right)
+}
+
+\newenvironment{bmat}[1]{
+	\left[ \begin{array}{#1}
+}{
+	\end{array} \right]
+}
+
+\newenvironment{Bmat}[1]{
+	\left\{ \begin{array}{#1}
+}{
+	\end{array} \right\}
+}
+
+\newenvironment{vmat}[1]{
+	\left\lvert \begin{array}{#1}
+}{
+	\end{array} \right\rvert
+}
+
+\newenvironment{Vmat}[1]{
+	\left\lVert \begin{array}{#1}
+}{
+	\end{array} \right\rVert
+}
