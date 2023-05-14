@@ -2,24 +2,27 @@
 \newcommand{\aneg}[1]{\hspace{-0.75em}&#1&\hspace{-0.75em}}
 \newcommand{\aneq}{\aneg{=}}
 % 上述指令用于在使用 array 环境时调整等号左右间距
-\newcommand{\eqs}{\quad\;}
-% 上述指令用于 align 环境中, &= 的换行对齐时调整第二行位置
+\newcommand{\noeq}{&\hspace{1.3em}}
+% 上述指令用于 align 环境中, 类似与 &= 但不显示等号.
 \renewcommand{\d}{\displaystyle}
 
 % 字符
 \renewcommand{\i}{\mathrm{i}}
 \renewcommand{\j}{\mathrm{j}}
+\renewcommand{\k}{\mathrm{k}}
 \newcommand{\e}{\textup{e}}
 \newcommand{\ve}{\varepsilon}
-\newcommand{\Beta}{\mathit{B}}
+\newcommand{\Beta}{\mathrm{B}}
 \newcommand{\omicron}{\mathit{o}}
 \newcommand{\Omicron}{\mathit{O}}
 
-\renewcommand{\cal}[1]{\mathcal#1}
-\renewcommand{\scr}[1]{\mathscr#1}
-\renewcommand{\frak}[1]{\mathfrak#1}
-% 原本的定义为:
-% \newcommand{\cal}[1]{\mathcal{#1}}
+% 简写与重定义
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+\renewcommand{\cal}[1]{\mathcal{#1}}
+\renewcommand{\scr}[1]{\mathscr{#1}}
+\renewcommand{\frak}[1]{\mathfrak{#1}}
+\renewcommand{\rm}[1]{\mathrm{#1}}
+\newcommand{\bb}[1]{\mathbb{#1}}
 
 % 数集
 \newcommand{\D}{\mathbb{D}}
@@ -116,12 +119,17 @@
 \DeclareMathOperator{\Corr}{Corr}
 \DeclareMathOperator{\rot}{rot}
 \DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Outer}{Outer}
+\DeclareMathOperator{\Even}{Even}
+\DeclareMathOperator{\Scalar}{Scalar}
+\DeclareMathOperator{\Vector}{Vector}
+\DeclareMathOperator{\arsh}{arsh}
+\DeclareMathOperator{\arch}{arch}
+\DeclareMathOperator{\arth}{arth}
 \renewcommand{\Re}{\operatorname{Re}}	% 自带 \Re 的效果是 \mathrm{Re}, 前后无空格, 故重写
 \renewcommand{\Im}{\operatorname{Im}}
-
-\def\arsh{\ensuremath{\operatorname{arsh}}}
-\def\arch{\ensuremath{\operatorname{arch}}}
-\def\arth{\ensuremath{\operatorname{arth}}}
+\DeclareMathOperator{\Sa}{Sa}
+\DeclareMathOperator{\Si}{Si}
 
 % 运算符
 % 可以用 \bigcap, \bigcup, \bigoplus, \bigotimes 替代
@@ -145,6 +153,7 @@
 \newcommand{\dsum}{\displaystyle\sum}
 \newcommand{\csum}[1]{\dsum_{#1=1}^\infty}
 \newcommand{\nsum}{\csum{n}}
+\newcommand{\nsuminf}{\dsum_{n=-\infty}^{+\infty}}
 \newcommand{\ksum}{\csum{k}}
 \newcommand{\nosum}{\dsum_{n=0}^\infty}
 \newcommand{\insum}{\dsum_{i=1}^n}
@@ -166,6 +175,16 @@
 \newcommand{\nlim}{\lim\limits_{n\to\infty}}
 \newcommand{\clim}[1]{\lim\limits_{#1\to\infty}}
 
+% 并集
+\newcommand{\incup}{\bigcup_{i=1}^n}
+\newcommand{\ncup}{\bigcup_{n=1}^\infty}
+\newcommand{\icup}{\bigcup_{i=1}^\infty}
+
+% 交集
+\newcommand{\incap}{\bigcap_{i=1}^n}
+\newcommand{\ncap}{\bigcap_{n=1}^\infty}
+\newcommand{\icap}{\bigcap_{i=1}^\infty}
+
 % 差分
 \newcommand{\DD}{\Delta}
 \newcommand{\DV}[2]{\dfrac{\DD#1}{\DD#2}}
@@ -175,8 +194,11 @@
 \newcommand{\ddv}{\displaystyle\dv}
 \newcommand{\dpdv}{\displaystyle\pdv}
 
+% 最值 (返回参数); 暂时先这么凑合着用吧
+\newcommand{\argmax}[1]{\underset{#1}{\operatorname{argmax}}}
+\newcommand{\argmin}[1]{\underset{#1}{\operatorname{argmin}}}
+
 % 缩写
-\newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\LRA}{\Leftrightarrow}
 \newcommand{\RLA}{\Leftrightarrow}
 \newcommand{\LA}{\Leftarrow}
@@ -238,3 +260,8 @@
 }{
 	\end{array} \right\rVert
 }
+
+% 积分变换
+\newcommand{\ft}{\overset{\cal F}{\rla}}
+\newcommand{\lt}{\overset{\cal L}{\rla}}
+\newcommand{\bt}{\overset{\cal B}{\rla}}
